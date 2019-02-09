@@ -15,12 +15,6 @@ data = data[['year','suicides_no','population','gdp_per_capita ($)','female', 'm
 data_size = len(data.index) #27820
 data_size_fifth = math.ceil(data_size/5) 
 error = []
-
-
-
-
-#print(data)
-#print(data.loc[0]['year'])
 for i in range(5):
     test=data.iloc[0+i*data_size_fifth:data_size_fifth+i*data_size_fifth]
     train=data.drop(data.index[0+i*data_size_fifth:data_size_fifth+i*data_size_fifth])   
@@ -49,8 +43,3 @@ for i in range(5):
             mean_difference = (mean_difference + abs((real_value/predicted_value)*100))/2
     error.append(mean_difference)
 print(error)
-
-
-#print('Intercept: \n', regr.intercept_)
-#print('Coefficients: \n', regr.coef_)
-#print ('Predicted suicide number: \n', regr.predict([[2019,40000000,13811,0,1,0,1,0,0,0,0]]))
